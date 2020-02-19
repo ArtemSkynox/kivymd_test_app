@@ -1,0 +1,346 @@
+#:import Content __main__.Content
+#:import get_hex_from_color kivy.utils.get_hex_from_color
+#:import Animation kivy.animation.Animation
+#:import MDExpansionPanel kivymd.uix.expansionpanel.MDExpansionPanel
+#Main
+#problem line 291
+MDBottomNavigation:  
+    MDBottomNavigationItem:
+    #Home page
+        name: "home_screen"
+        icon: 'home'
+        MainScreen3:
+
+    MDBottomNavigationItem:
+    #Add image page
+        name: "home_screen2"
+        icon: 'image-plus'        
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10 
+            BoxLayout:
+            #Heading
+                size_hint: 1, .05 
+                padding: [15, 30, 0, 0]                                                            
+                MDLabel:
+                    text: "Foto fitting "
+                    font_size: 30                    
+                    font_color: 0.4, 0.6, 0.2, 1
+                    halign: 'left'     
+                    medium: True
+            BoxLayout:
+                orientation: 'vertical'                  
+
+
+                    
+                    
+    MDBottomNavigationItem:
+    #AR Camera page
+        name: "home_screen3"
+        icon: 'augmented-reality'
+    MDBottomNavigationItem:
+    #Bascet page
+        name: "home_screen4"
+        icon: 'cart'
+    MDBottomNavigationItem:
+    #Account page
+        name: "home_screen5"
+        icon: 'account'
+
+<MainMenuButton@BoxLayout>
+    text: ""  
+    MDCard:
+        MDFlatButton:                                    
+            size_hint: 1, 1
+            padding: [25,0]                       
+            MDLabel:
+                size_hint_x: 1
+                text: root.text                                                                     
+                font_size: 25
+                bold: True 
+                theme_text_color: 'Custom'                       
+                text_color: 0, 0.39, 0.60, 1  
+                halign: 'left'
+            MDIcon:
+                id: lbl_ic
+                icon: 'chevron-right'                
+                theme_text_color: 'Custom'
+                text_color: 0, 0.39, 0.60, 1                                                       
+                
+
+
+<ButtonProduct@BoxLayout>
+    text_1: ""
+    text_2: ""
+    text_3: ""
+    source: ""     
+    MDCard:
+        MDFlatButton:                                    
+            size_hint: 1, 1
+            BoxLayout: 
+                orientation: 'vertical'                                                                                                              
+                BoxLayout:
+                    #Image
+                    halign: 'center'
+                    size_hint: 1, 0.6
+                    padding: [0, 10, 0, 0]                                                     
+                    Image:
+                        id: product
+                        source: root.source
+                        size: self.texture_size
+                BoxLayout:
+                    #Text
+                    size_hint: 1, 0.6
+                    orientation: 'vertical'
+                    spacing: 5
+                    halign: 'left'
+                    BoxLayout:
+                        size_hint: 1, 0.3
+                        padding: [0, 15, 0, 0]                   
+                        MDLabel:                        
+                            text: root.text_1
+                            font_size: 12 
+                    BoxLayout:
+                        size_hint: 1, 0.3
+                        MDLabel:                        
+                            text: root.text_2
+                            font_size: 15
+                            bold: True
+                    BoxLayout: 
+                        size_hint: 1, 0.4 
+                        padding: [0,0,0,20]                                
+                        MDLabel:
+                            size_hint_x: 1
+                            text: root.text_3                                                                     
+                            font_size: 25                        
+                            theme_text_color: 'Custom'                       
+                            text_color: 0, 0.39, 0.60, 1  
+                            halign: 'right'
+                            bold: True
+                                                                                                                      
+                
+
+
+<MainScreen@BoxLayout>:
+    name: 'main'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10 
+        BoxLayout:
+        #Heading
+            size_hint: 1, .05 
+            padding: [15, 25, 0, 0]                                            
+            MDLabel:
+                text: "Home"
+                font_size: 30                    
+                font_color: 0.4, 0.6, 0.2, 1
+                halign: 'left'     
+                medium: True                                
+        BoxLayout:
+            #Search 
+            size_hint: 1, .1
+            BoxLayout:
+                #Search panel
+                size_hint: .8, 1
+                padding: [15, 0, 0, 0]
+                MDTextField:
+                    hint_text: 'Search'
+                    line_color_active: 0, 0.39, 0.60, 1
+
+            BoxLayout:
+                #Search Button
+                size_hint: .1, 1
+                MDIconButton:
+                    icon: 'magnify'
+                    theme_text_color: 'Custom'
+                    text_color: 0.60, 0.65, 0.69, 1                        
+            BoxLayout:
+                #Filter Button
+                size_hint: .1, 1
+                MDIconButton:
+                    icon: 'filter'
+                    theme_text_color: 'Custom'
+                    text_color: 0.60, 0.65, 0.69, 1
+                        
+
+
+        BoxLayout:
+            #Product Grid
+            size_hint: 1, .8
+            BoxLayout:
+                orientation: 'vertical'                                       
+                padding: [15,5,15,5]                    
+                ScrollView:
+                    MDList:
+                        id: scroll
+                        spacing: 15                                                
+                        MainMenuButton:
+                            id: ovens
+                            text: 'Ovens'                                                                                                                                           
+                        MainMenuButton:
+                            id: hobs
+                            text: 'Hobs'
+                        MainMenuButton:
+                            id: steam appliances
+                            text: 'Steam appliances'
+                        MainMenuButton:
+                            id: microwaves
+                            text: 'Microwaves'
+                        MainMenuButton:
+                            id: cookerhoods
+                            text: 'Cooker hoods'
+
+<MainScreen2@BoxLayout>:
+    name: 'ovens'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10 
+        BoxLayout:
+        #Heading
+            size_hint: 1, .05 
+            padding: [15, 25, 0, 0]                                            
+            MDLabel:
+                text: "Home"
+                font_size: 30                    
+                font_color: 0.4, 0.6, 0.2, 1
+                halign: 'left'     
+                medium: True                                
+        BoxLayout:
+            #Search 
+            size_hint: 1, .1
+            BoxLayout:
+                #Search panel
+                size_hint: .8, 1
+                padding: [15, 0, 0, 0]
+                MDTextField:
+                    hint_text: 'Search'
+                    line_color_active: 0, 0.39, 0.60, 1
+
+            BoxLayout:
+                #Search Button
+                size_hint: .1, 1
+                MDIconButton:
+                    icon: 'magnify'
+                    theme_text_color: 'Custom'
+                    text_color: 0.60, 0.65, 0.69, 1                        
+            BoxLayout:
+                #Filter Button
+                size_hint: .1, 1
+                MDIconButton:
+                    icon: 'filter'
+                    theme_text_color: 'Custom'
+                    text_color: 0.60, 0.65, 0.69, 1                        
+        BoxLayout:
+            #Product Grid
+            size_hint: 1, .8
+            BoxLayout:
+                orientation: 'vertical'                                       
+                padding: [15,5,15,5]                    
+                ScrollView:
+                    MDList:
+                        id: scroll
+                        spacing: 15                                                
+                        MainMenuButton:
+                            id: built_in_ovens
+                            text: 'Built-in ovens'
+                            on_release:                                                                                                                   
+                        MainMenuButton:
+                            id: Built_in_compact_ovens
+                            text: 'Built-in compact ovens'
+
+
+#This problem line 291
+<MainScreen3@BoxLayout>:
+    name: 'built-in'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10 
+        BoxLayout:
+        #Heading
+            size_hint: 1, .05 
+            padding: [15, 25, 0, 0]                                            
+            MDLabel:
+                text: "Home"
+                font_size: 30                    
+                font_color: 0.4, 0.6, 0.2, 1
+                halign: 'left'     
+                medium: True                                
+        BoxLayout:
+            #Search 
+            size_hint: 1, .1
+            BoxLayout:
+                #Search panel
+                size_hint: .8, 1
+                padding: [15, 0, 0, 0]
+                MDTextField:
+                    hint_text: 'Search'
+                    line_color_active: 0, 0.39, 0.60, 1
+            BoxLayout:
+                #Search Button
+                size_hint: .1, 1
+                MDIconButton:
+                    icon: 'magnify'
+                    theme_text_color: 'Custom'
+                    text_color: 0.60, 0.65, 0.69, 1                        
+            BoxLayout:
+                #Filter Button
+                size_hint: .1, 1
+                MDIconButton:
+                    icon: 'filter'
+                    theme_text_color: 'Custom'
+                    text_color: 0.60, 0.65, 0.69, 1
+                    MDExpansionPanel:
+                        on_open: Animation(height=(box.height + self.content.height) - dp(70), d=.2).start(box)
+                        on_close: Animation(height=(box.height - self.content.height) + dp(70), d=.2).start(box)
+                        icon: "avatar.png"
+                        title: "HeaTTheatR"                        
+        BoxLayout:
+            #Product Grid
+            size_hint: 1, .8
+            BoxLayout:
+                orientation: 'vertical'                                                                         
+                ScrollView:
+                    do_scroll_x: False                    
+                    GridLayout:
+                        cols: 2
+                        row_default_height:
+                            (self.width - self.cols*self.spacing[0])/self.cols
+                        row_force_default: True
+                        size_hint_y: None
+                        height: self.minimum_height  
+                        padding: [15,10]
+                        spacing: 15                                                                                                  
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text_1: 'text'
+                            text_2: 'text'
+                            text_3: 'text'
+                            #source: 'Image_8.png'                                                                                                                  
+                        ButtonProduct:
+                            id: Built_in_compact_ovens
+                            text: 'text'
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text: 'text'
+                            
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text: 'texts'
+                           
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text: 'text'
+                            
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text: 'text'
+                             
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text: 'Built-in ovens'
+                            
+                        ButtonProduct:
+                            id: built_in_ovens
+                            text: 'Built-in ovens'
+                            
+                       
